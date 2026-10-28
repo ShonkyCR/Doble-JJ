@@ -102,8 +102,15 @@ const translations = {
     contactTitle: 'Ready to better understand your business?',
     contactIntro: "Let's talk about where your business is today, what challenges you're facing, and what solutions could help you move forward.",
     phoneLabel: 'PHONE',
-    emailCardLabel: 'EMAIL',
+    emailCardLabel: 'CORPORATE EMAIL',
     whatsappCta: 'Start a conversation',
+    heroBadgeControl: 'MONTHLY CONTROL',
+    heroBadgeControlVal: 'On track',
+    heroBadgeDecisions: 'DECISIONS',
+    heroBadgeDecisionsVal: 'Data-led',
+    heroCaptionOrganize: 'ORGANIZE',
+    heroCaptionMeasure: 'MEASURE',
+    heroCaptionGrow: 'GROW',
     formEyebrow: 'TELL US A LITTLE ABOUT YOUR BUSINESS',
     formTitle: "Let's make your next decision a smarter one.",
     nameLabel: 'Your name',
@@ -238,8 +245,15 @@ const translations = {
     contactTitle: '¿Listo para comprender mejor tu negocio?',
     contactIntro: 'Hablemos de dónde está tu negocio hoy, cuáles son los retos que enfrentas y qué soluciones podrían ayudarte a avanzar.',
     phoneLabel: 'TELÉFONO',
-    emailCardLabel: 'CORREO',
+    emailCardLabel: 'CORREO EMPRESARIAL',
     whatsappCta: 'Iniciar una conversación',
+    heroBadgeControl: 'CONTROL MENSUAL',
+    heroBadgeControlVal: 'En orden',
+    heroBadgeDecisions: 'DECISIONES',
+    heroBadgeDecisionsVal: 'Con datos',
+    heroCaptionOrganize: 'ORGANIZAR',
+    heroCaptionMeasure: 'MEDIR',
+    heroCaptionGrow: 'CRECER',
     formEyebrow: 'CUÉNTANOS UN POCO SOBRE TU NEGOCIO',
     formTitle: 'Hagamos que tu próxima decisión sea más inteligente.',
     nameLabel: 'Tu nombre',
@@ -316,7 +330,7 @@ const legalDocuments = {
         <p>We implement industry-standard technical safeguards, access controls, and secure communications to protect your information against unauthorized access, loss, or disclosure.</p>
 
         <h4>5. Your Rights & Inquiries</h4>
-        <p>You have the right to request access to, correction of, or deletion of your personal contact records at any time by contacting us directly at <a href="mailto:hello@doublejsolutions.com" style="color: var(--cyan); text-decoration: underline;">hello@doublejsolutions.com</a>.</p>
+        <p>You have the right to request access to, correction of, or deletion of your personal contact records at any time by contacting us directly at <a href="mailto:consultas@doblejsolutions.com" style="color: var(--cyan); text-decoration: underline;">consultas@doblejsolutions.com</a>.</p>
       `
     },
     disclaimer: {
@@ -369,7 +383,7 @@ const legalDocuments = {
         <p>Aplicamos medidas técnicas estándar, contraseñas robustas y canales cifrados para proteger tu información contra acceso indebido, pérdida o divulgación no autorizada.</p>
 
         <h4>5. Tus Derechos y Contacto</h4>
-        <p>Puedes solicitar la actualización, rectificación o eliminación de tus datos de contacto en cualquier momento escribiéndonos a <a href="mailto:hello@doublejsolutions.com" style="color: var(--cyan); text-decoration: underline;">hello@doublejsolutions.com</a>.</p>
+        <p>Puedes solicitar la actualización, rectificación o eliminación de tus datos de contacto en cualquier momento escribiéndonos a <a href="mailto:consultas@doblejsolutions.com" style="color: var(--cyan); text-decoration: underline;">consultas@doblejsolutions.com</a>.</p>
       `
     },
     disclaimer: {
@@ -723,6 +737,10 @@ function openServiceModal(serviceKey) {
   refreshIcons();
 
   if (serviceModalOverlay) {
+    const serviceModalBody = serviceModalOverlay.querySelector('.service-modal-body');
+    if (serviceModalBody) {
+      serviceModalBody.scrollTop = 0;
+    }
     serviceModalOverlay.classList.add('is-active');
     serviceModalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -1145,12 +1163,13 @@ function playHeroEntrance() {
     ease: 'power3.out'
   }, '-=0.8');
 
-  heroTl.from('.chart-line', {
-    strokeDasharray: 600,
-    strokeDashoffset: 600,
-    duration: 1.5,
-    ease: 'power2.out'
-  }, '-=0.6');
+  heroTl.from('.hero-showcase-frame', {
+    y: 25,
+    opacity: 0,
+    scale: 0.96,
+    duration: 1.0,
+    ease: 'power3.out'
+  }, '-=0.7');
 
   heroTl.from('.floating-card-a', {
     scale: 0.7,
