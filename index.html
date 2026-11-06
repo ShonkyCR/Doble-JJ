@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2.4" />
 </head>
 <body>
 
@@ -43,7 +43,7 @@
         <a href="#about" data-nav data-i18n="navAbout">About</a>
         <a href="#contact" data-nav data-i18n="navContact">Contact</a>
         <a class="button button-small button-green mobile-nav-cta" href="#contact" data-i18n="navCta">
-          <span>Get a Free Pricing</span>
+          <span>Get a Free Consultation</span>
           <i data-lucide="arrow-up-right"></i>
         </a>
       </nav>
@@ -52,7 +52,7 @@
           <i data-lucide="phone"></i>
         </a>
         <a class="button button-small button-green button-header-cta" href="#contact" data-i18n="navCta">
-          <span>Get a Free Pricing</span>
+          <span>Get a Free Consultation</span>
           <i data-lucide="arrow-up-right"></i>
         </a>
       </div>
@@ -120,9 +120,9 @@
                 <strong data-i18n="heroBadgeDecisionsVal">Data-led</strong>
               </div>
             </div>
-            <div class="visual-caption">
-              <span data-i18n="heroCaptionOrganize">ORGANIZE</span> <i data-lucide="arrow-right"></i> <span data-i18n="heroCaptionMeasure">MEASURE</span> <i data-lucide="arrow-right"></i> <span data-i18n="heroCaptionGrow">GROW</span>
-            </div>
+          </div>
+          <div class="visual-caption">
+            <span data-i18n="heroCaptionOrganize">ORGANIZE</span> <i data-lucide="arrow-right"></i> <span data-i18n="heroCaptionMeasure">MEASURE</span> <i data-lucide="arrow-right"></i> <span data-i18n="heroCaptionGrow">GROW</span>
           </div>
         </div>
       </div>
@@ -232,8 +232,10 @@
             <div class="featured-badge-row">
               <span class="featured-tag" data-i18n="featuredTag"><i data-lucide="sparkles"></i> FEATURED TOOL</span>
             </div>
-            <div class="solution-icon solution-icon-featured"><i data-lucide="layout-dashboard"></i></div>
-            <div class="dashboard-mini"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="solution-featured-media">
+              <img src="img/dashboard.PNG" alt="Administrative Dashboard — Double J Solutions" class="solution-featured-img" width="500" height="340" loading="lazy" decoding="async" />
+              <div class="solution-featured-overlay"></div>
+            </div>
             <h3 data-i18n="solutionDashTitle">Administrative Dashboard</h3>
             <p data-i18n="solutionDashText">A centralized business management tool designed to track income, expenses, payroll, and other key information, giving you a clearer view of how your company is performing.</p>
             <button type="button" class="text-link link-light text-link-btn" data-service-trigger="dashboard" data-i18n="learnMore">Explore solution <i data-lucide="arrow-up-right"></i></button>
@@ -266,7 +268,7 @@
         </div>
         <div class="growth-path" data-animate="growth-path">
           <article class="growth-step growth-step-1">
-            <div class="growth-top"><span>01</span><span class="growth-arrow"><i data-lucide="arrow-right"></i></span></div>
+            <div class="growth-top"><span data-i18n="growthStep1">STEP 01</span><span class="growth-arrow"><i data-lucide="arrow-right"></i></span></div>
             <div class="growth-media">
               <img src="img/organizar.PNG" alt="Organizar - Sistemas y estructura de negocio" class="growth-img" width="400" height="275" loading="lazy" decoding="async" />
               <div class="growth-overlay"></div>
@@ -276,7 +278,7 @@
           </article>
           <div class="path-line" aria-hidden="true"><div class="path-line-fill"></div></div>
           <article class="growth-step growth-step-2">
-            <div class="growth-top"><span>02</span><span class="growth-arrow"><i data-lucide="arrow-right"></i></span></div>
+            <div class="growth-top"><span data-i18n="growthStep2">STEP 02</span><span class="growth-arrow"><i data-lucide="arrow-right"></i></span></div>
             <div class="growth-media">
               <img src="img/medir.PNG" alt="Medir - Métricas y desempeño confiable" class="growth-img" width="400" height="275" loading="lazy" decoding="async" />
               <div class="growth-overlay"></div>
@@ -286,7 +288,7 @@
           </article>
           <div class="path-line" aria-hidden="true"><div class="path-line-fill"></div></div>
           <article class="growth-step growth-step-3 growth-final">
-            <div class="growth-top"><span>03</span><span class="growth-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+            <div class="growth-top"><span data-i18n="growthStep3">STEP 03</span><span class="growth-arrow"><i data-lucide="arrow-up-right"></i></span></div>
             <div class="growth-media">
               <img src="img/crecer.PNG" alt="Crecer - Estrategia, tecnología y decisiones inteligentes" class="growth-img" width="400" height="275" loading="lazy" decoding="async" />
               <div class="growth-overlay"></div>
@@ -311,7 +313,7 @@
         </div>
         <div class="process-list" data-animate="process-list">
           <article class="process-item">
-            <span class="process-number">01</span>
+            <span class="process-number" data-i18n="processStep1"><span class="process-step-prefix">STEP </span>01</span>
             <div>
               <p class="process-label" data-i18n="stepOneLabel">LET'S TALK</p>
               <h3 data-i18n="stepOneTitle">Start with a simple conversation.</h3>
@@ -320,7 +322,7 @@
             <span class="process-mark"><i data-lucide="message-square-plus"></i></span>
           </article>
           <article class="process-item">
-            <span class="process-number">02</span>
+            <span class="process-number" data-i18n="processStep2"><span class="process-step-prefix">STEP </span>02</span>
             <div>
               <p class="process-label" data-i18n="stepTwoLabel">WE LISTEN</p>
               <h3 data-i18n="stepTwoTitle">We understand your business.</h3>
@@ -329,16 +331,16 @@
             <span class="process-mark"><i data-lucide="headphones"></i></span>
           </article>
           <article class="process-item">
-            <span class="process-number">03</span>
+            <span class="process-number" data-i18n="processStep3"><span class="process-step-prefix">STEP </span>03</span>
             <div>
               <p class="process-label" data-i18n="stepThreeLabel">WE ALIGN</p>
               <h3 data-i18n="stepThreeTitle">We recommend what makes sense.</h3>
               <p data-i18n="stepThreeText">Based on your real needs and priorities, we recommend the solutions that make the most sense for your business. No one-size-fits-all package.</p>
             </div>
-            <span class="process-mark"><i data-lucide="git-merge"></i></span>
+            <span class="process-mark"><i data-lucide="compass"></i></span>
           </article>
           <article class="process-item">
-            <span class="process-number">04</span>
+            <span class="process-number" data-i18n="processStep4"><span class="process-step-prefix">STEP </span>04</span>
             <div>
               <p class="process-label" data-i18n="stepFourLabel">WE BUILD</p>
               <h3 data-i18n="stepFourTitle">We build and support.</h3>
@@ -710,8 +712,8 @@
   <!-- Third Party Animation & Icon Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@1.70.0"></script>
   <!-- Application Script -->
-  <script src="main.js" defer></script>
+  <script src="main.js?v=2.3" defer></script>
 </body>
 </html>

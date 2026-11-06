@@ -13,7 +13,7 @@ const translations = {
     navProjects: 'Projects',
     navAbout: 'About',
     navContact: 'Contact',
-    navCta: "Get a Free Pricing <i data-lucide=\"arrow-up-right\"></i>",
+    navCta: "Get a Free Consultation <i data-lucide=\"arrow-up-right\"></i>",
     heroEyebrow: 'DIGITAL TOOLS FOR SMARTER BUSINESSES',
     heroTitleA: 'Smarter Solutions.',
     heroTitleB: 'Stronger Businesses.',
@@ -57,6 +57,9 @@ const translations = {
     whyKicker: 'THE DIFFERENCE',
     whyTitle: 'Business experience meets technology.',
     whyIntro: 'Running a business requires more than working hard. It requires organization, reliable information, the right tools, and the ability to understand what the numbers are telling you.',
+    growthStep1: 'STEP 01',
+    growthStep2: 'STEP 02',
+    growthStep3: 'STEP 03',
     organizeTitle: 'ORGANIZE',
     organizeText: 'Build better systems, controls, and structure for your business.',
     measureTitle: 'MEASURE',
@@ -66,6 +69,10 @@ const translations = {
     whyFootnote: "What you don't measure, you can't improve.",
     processKicker: 'THE PROCESS',
     processTitle: 'Every business is different. Our recommendations should be too.',
+    processStep1: '<span class="process-step-prefix">STEP </span>01',
+    processStep2: '<span class="process-step-prefix">STEP </span>02',
+    processStep3: '<span class="process-step-prefix">STEP </span>03',
+    processStep4: '<span class="process-step-prefix">STEP </span>04',
     stepLabel: "LET'S TALK",
     stepOneLabel: "LET'S TALK",
     stepTwoLabel: "WE LISTEN",
@@ -200,6 +207,9 @@ const translations = {
     whyKicker: 'LA DIFERENCIA',
     whyTitle: 'La experiencia empresarial se une con la tecnología.',
     whyIntro: 'Dirigir un negocio requiere más que trabajar duro. Requiere organización, información confiable, las herramientas adecuadas y la capacidad de comprender lo que los números realmente están diciendo.',
+    growthStep1: 'PASO 01',
+    growthStep2: 'PASO 02',
+    growthStep3: 'PASO 03',
     organizeTitle: 'ORGANIZAR',
     organizeText: 'Crear mejores sistemas, controles y estructura para tu negocio.',
     measureTitle: 'MEDIR',
@@ -209,6 +219,10 @@ const translations = {
     whyFootnote: 'Lo que no se mide, no se puede mejorar.',
     processKicker: 'EL PROCESO',
     processTitle: 'Cada negocio es diferente. Nuestras recomendaciones también deben serlo.',
+    processStep1: '<span class="process-step-prefix">PASO </span>01',
+    processStep2: '<span class="process-step-prefix">PASO </span>02',
+    processStep3: '<span class="process-step-prefix">PASO </span>03',
+    processStep4: '<span class="process-step-prefix">PASO </span>04',
     stepLabel: 'HABLEMOS',
     stepOneLabel: 'HABLEMOS',
     stepTwoLabel: 'ESCUCHAMOS',
@@ -1102,7 +1116,14 @@ function initLoadingAndAnimations() {
 function playHeroEntrance() {
   if (!window.gsap) return;
 
-  const heroTl = gsap.timeline();
+  // Disable CSS transitions on animated elements while GSAP records their
+  // end values, otherwise the transitions make GSAP capture the "from"
+  // state as the final state and elements stay shifted/scaled forever.
+  document.body.classList.add('hero-animating');
+
+  const heroTl = gsap.timeline({
+    onComplete: () => document.body.classList.remove('hero-animating')
+  });
 
   heroTl.from('.site-header', {
     y: -40,
@@ -1137,7 +1158,8 @@ function playHeroEntrance() {
     opacity: 0,
     duration: 0.5,
     stagger: 0.08,
-    ease: 'back.out(1.7)'
+    ease: 'back.out(1.7)',
+    clearProps: 'transform'
   }, '-=0.4');
 
   heroTl.from('.hero-btn, .hero-note', {
@@ -1145,7 +1167,8 @@ function playHeroEntrance() {
     opacity: 0,
     duration: 0.6,
     stagger: 0.1,
-    ease: 'power3.out'
+    ease: 'power3.out',
+    clearProps: 'transform'
   }, '-=0.3');
 
   heroTl.from('.visual-glow', {
@@ -1168,21 +1191,24 @@ function playHeroEntrance() {
     opacity: 0,
     scale: 0.96,
     duration: 1.0,
-    ease: 'power3.out'
+    ease: 'power3.out',
+    clearProps: 'transform'
   }, '-=0.7');
 
   heroTl.from('.floating-card-a', {
     scale: 0.7,
     opacity: 0,
     duration: 0.5,
-    ease: 'back.out(1.8)'
+    ease: 'back.out(1.8)',
+    clearProps: 'transform'
   }, '-=0.5');
 
   heroTl.from('.floating-card-b', {
     scale: 0.7,
     opacity: 0,
     duration: 0.5,
-    ease: 'back.out(1.8)'
+    ease: 'back.out(1.8)',
+    clearProps: 'transform'
   }, '-=0.4');
 
   heroTl.from('.visual-caption, .scroll-cue', {
@@ -1207,7 +1233,7 @@ function playHeroEntrance() {
   });
 
   gsap.to('.dashboard-wrapper', {
-    y: '+=6',
+    yPercent: '+=1.5',
     duration: 3.5,
     repeat: -1,
     yoyo: true,
